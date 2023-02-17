@@ -22,13 +22,13 @@ const getAll = (callback) => {
     connection.query(`SELECT name FROM people`, function (err, result) {
         if (err) throw err
 
-        const listOfNames = result.map((people) => `<li><span>${people.name}</span></li>`).join('\n')
+        const nameList = result.map((people) => `<li><span>${people.name}</span></li>`).join('\n')
         const destaque = 'Geizielder'
         return callback(`
             <h1>Full Cycle Rocks!</h1>
             <h3>Destaque do mês: ${destaque} :)</h3>
             <ul>
-                ${listOfNames}
+                ${nameList}
             </ul>
         `)
     });
